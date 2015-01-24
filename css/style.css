@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+}
+a {
+    color: #000;
+}
+a:hover, a:visited, a:active {
+    text-decoration: none;
+}
+#main {
+    width: 600px;
+    margin: 100px auto 0 auto;
+}
+#page {
+    padding: 10px;
+    background: #ececec;
+    border: 1px solid #ccc;
+}
+form fieldset {
+    border: none;
+}
+form fieldset br {
+    clear: left;
+}
+label {
+    margin-top: 5px;
+    display: block;
+    width: 100px;
+    padding: 0;
+    float: left;
+}
+input {
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    padding: 3px;
+    background: #fff;
+}
+input:hover {
+    border: 1px solid #222;
+    background: #eee;
+}
+#error {
+    color: red;
+}
+#menu div {
+    background-color: #E6E6E6;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 15px;
+    padding: 4px 11px;
+}
+#menu div:hover {
+    background-color: #969696;
+}
+#menu div a {
+    text-decoration: none;
+}
