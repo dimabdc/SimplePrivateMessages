@@ -5,6 +5,7 @@ if (!defined("IN_ANNOUNCE")) {
 
 if (!$islogin) {
     header("Location: ?page=login");
+    exit;
 } elseif (isset($_POST['send'])) {
     if (!$_POST['username']) {
         $errormessage = "Введите пользователя! ";
@@ -26,6 +27,7 @@ if (!$islogin) {
                 $query = "INSERT INTO messages (sender, repecient, title, message, date) VALUES ('$username', '$repecient', '$title', '$message', $date)";
                 $db->query($query);
                 header("Location: ?page=messages");
+                exit;
             }
         }
     }

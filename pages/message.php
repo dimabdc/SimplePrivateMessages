@@ -5,6 +5,7 @@ if (!defined("IN_ANNOUNCE")) {
 
 if (!$islogin) {
     header("Location: ?page=login");
+    exit;
 }
 
 if (isset($_GET["id"])) {
@@ -20,7 +21,9 @@ if (isset($_GET["id"])) {
         $htmltemplate->assign("message", $result["message"]);
     } else {
         header("Location: ?page=login");
+        exit;
     }
 } else {
     header("Location: ?page=login");
+    exit;
 }

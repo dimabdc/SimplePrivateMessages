@@ -4,6 +4,7 @@ if (! defined ( "IN_ANNOUNCE" ))
 
 if ($islogin) {
     header("Location: ?page=private");
+    exit;
 } elseif (isset($_POST['login'])) {
     if (!$_POST['username']) {
         $errormessage = "Логин не может быть пустым! ";
@@ -22,6 +23,7 @@ if ($islogin) {
             $_SESSION['username'] = $username;
             $_SESSION['userid'] = $userid;
             header("Location: ?page=private");
+            exit;
         }
     }
 }

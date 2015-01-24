@@ -4,6 +4,7 @@ if (! defined ( "IN_ANNOUNCE" ))
 
 if ($islogin) {
     header("Location: ?page=private");
+    exit;
 } elseif (isset($_POST['register'])) {
     if (!$_POST['username']) {
         $errormessage = "Логин не может быть пустым! ";
@@ -40,6 +41,7 @@ if ($islogin) {
                     $_SESSION['username'] = $username;
                     $_SESSION['userid'] = $db->result($db->query("SELECT id FROM users WHERE (username='$username')"), 0);
                     header("Location: ?page=private");
+                    exit;
                 }
             }
         }

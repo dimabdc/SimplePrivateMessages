@@ -4,6 +4,7 @@ if (! defined ( "IN_ANNOUNCE" ))
 
 if (!$islogin) {
     header("Location: ?page=login");
+    exit;
 }
 
 $userid = $_SESSION['userid'];
