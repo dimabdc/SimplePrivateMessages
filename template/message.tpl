@@ -1,4 +1,4 @@
 <h1><#messagetitle#></h1>  
-<p>Сообщение отправлено: <b><#datemessage#></b> от пользователя <b><#username#></b>.</p>
+<p><$message_mess$><b><#datemessage#></b><$message_mess1$><b><#username#></b>.</p>
 <p><#message#></p>
-<p><a href="?page=send&user=<#username#>">Ответить</a></p>
+<p><a href="?page=send&user=<#username#>"><$message_reply$></a></p>

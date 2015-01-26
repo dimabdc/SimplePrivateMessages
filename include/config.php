@@ -9,6 +9,8 @@ $mysql_pass = 'dbpass';
 $mysql_db = 'dbuser';
 $mysql_charset = 'utf8';
 
+$lang = "ru";
+
 require_once(ROOT_PATH . 'include/mysql.php');
 
 $db = new mysqldb($mysql_host, $mysql_user, $mysql_pass, $mysql_db, $mysql_charset);

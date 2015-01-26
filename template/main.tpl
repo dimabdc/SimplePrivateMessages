@@ -8,9 +8,9 @@
 <body>
     <div id="main">
         <div id="menu">
-            <div><a href="?page=login">Домой</a></div>
-            <div><a href="?page=messages">Сообщения</a></div>
-            <div><a href="?page=logout">Выход</a></div>
+            <div><a href="?page=login"><$home$></a></div>
+            <div><a href="?page=messages"><$messages$></a></div>
+            <div><a href="?page=logout"><$exit$></a></div>
         </div>
         <div id="page">
             <#main#>

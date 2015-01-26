@@ -8,9 +8,13 @@ $islogin = isset($_SESSION['username'])?true:false;
 define ('IN_ANNOUNCE', true);
 define("ROOT_PATH",dirname(__FILE__).'/');
 require_once(ROOT_PATH . 'include/config.php');
+require_once(ROOT_PATH . 'include/language.php');
 require_once(ROOT_PATH . 'include/functions.php');
 
 $htmltemplate = new HtmlTemplate();
+
+$localize = Localizer::getInstance();
+$localize->setLanguage($lang);
 
 $page = isset($_GET['page'])?$_GET['page']:"login";
 if (is_file ("pages/".$page.".php")){
@@ -30,4 +34,4 @@ $htmltemplate->assign("errormessage", $errormessage);
 $htmltemplate->assign("main", $template_page);
 
 header('Content-type: text/html; charset=utf-8');
-$htmltemplate->display($template_main);
+$htmltemplate->display($template_main, $localize);

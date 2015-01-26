@@ -7,15 +7,15 @@ if ($islogin) {
     exit;
 } elseif (isset($_POST['login'])) {
     if (!$_POST['username']) {
-        $errormessage = "Логин не может быть пустым! ";
+        $errormessage = $localize->Translate('error_empty_login');
     } elseif (!$_POST['password']) {
-        $errormessage = "Пароль не может быть пустым! ";
+        $errormessage = $localize->Translate('error_empty_password');
     } else {
         $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
 
         $result = $db->fetch_array($db->query("SELECT passhash, secret, id FROM users WHERE (username = '$username')"));
         if ($result["passhash"] != md5($result["secret"] . $_POST['password'] . $result["secret"]) || !$result) {
-            $errormessage = "Имя пользователя или пароль указаны не верно.";
+            $errormessage = $localize->Translate('error_incorrect_login_password');
         } else {
             $last_login = time();
             $userid = $result['id'];

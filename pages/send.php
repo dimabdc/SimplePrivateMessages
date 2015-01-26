@@ -8,7 +8,7 @@ if (!$islogin) {
     exit;
 } elseif (isset($_POST['send'])) {
     if (!$_POST['username']) {
-        $errormessage = "Введите пользователя! ";
+        $errormessage = $localize->Translate('error_empty_username');
     } else {
         $repecient = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
         $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -16,11 +16,11 @@ if (!$islogin) {
         $username = $_SESSION['userid'];
 	
 	if (!validusername($username)) {
-            $errormessage = "В имени пользователя недопустимые символы. ";
+            $errormessage = $localize->Translate('error_invalid_username');
         } else {
             $query = $db->query("SELECT id FROM users WHERE (username='$repecient')");
             if ($db->num_rows($query) == 0) {
-                $errormessage = "$username не зарегистрирован в системе.";
+                $errormessage = $username . $localize->Translate('error_unregistered_username');
             } else {
                 $repecient = $db->result($query);
                 $date = time();

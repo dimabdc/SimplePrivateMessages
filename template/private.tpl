@@ -1,2 +1,2 @@
-<h1>Закрытый раздел!</h1>  
-<p>Добро пожаловать, <b><#username#></b>! Ваша почта - <b><#email#></b>.</p>
+<h1><$private$></h1>  
+<p><$private_mess$><b><#username#></b><$private_mess2$><b><#email#></b>.</p>

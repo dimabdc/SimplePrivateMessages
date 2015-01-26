@@ -54,7 +54,7 @@ class HtmlTemplate {
         return $this->html;
     }
     
-    function display($template) { 
-        echo $this->parse($template);
+    function display($template, $localize) {
+        echo $localize->Translate($this->parse($template));
     }
 }

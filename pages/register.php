@@ -7,31 +7,31 @@ if ($islogin) {
     exit;
 } elseif (isset($_POST['register'])) {
     if (!$_POST['username']) {
-        $errormessage = "Логин не может быть пустым! ";
+        $errormessage = $localize->Translate('error_empty_login');
     } elseif (!$_POST['password']) {
-        $errormessage = "Пароль не может быть пустым! ";
+        $errormessage = $localize->Translate('error_empty_password');
     } elseif (!$_POST['email']) {
-        $errormessage = "E-mail не может быть пустым! ";
+        $errormessage = $localize->Translate('error_empty_email');
     } else {
         $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 	
 	if ($_POST['password'] == $username) {
-            $errormessage = "Пароль не может быть такой-же как имя пользователя. ";
+            $errormessage = $localize->Translate('error_invalid_passwor');
         } elseif (!validemail($email)) {
-            $errormessage = "Неправельный E-mail адрес. ";
+            $errormessage = $localize->Translate('error_invalid_email');
         } elseif (!validusername($username)) {
-            $errormessage = "В логине недопустимые символы. ";
+            $errormessage = $localize->Translate('error_invalid_login');
         } else {
 
             $result = $db->query("SELECT email FROM users WHERE (email='$email')");
             if ($db->num_rows($result) > 0) {
-                $errormessage = "E-mail адрес $email уже зарегистрирован в системе.";
+                $errormessage = $localize->Translate('error_registered_email') . $email . $localize->Translate('error_registered');
             } else {
 
                 $result = $db->query("SELECT username FROM users WHERE (username='$username')");
                 if ($db->num_rows($result) > 0) {
-                    $errormessage = "$username уже зарегистрирован в системе.";
+                    $errormessage = $username . $localize->Translate('error_registered');
                 } else {
                     $secret = generateCode();
                     $passhash = md5($secret . $_POST['password'] . $secret);
