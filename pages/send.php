@@ -20,7 +20,7 @@ if (!$islogin) {
         } else {
             $query = $db->query("SELECT id FROM users WHERE (username='$repecient')");
             if ($db->num_rows($query) == 0) {
-                $errormessage = $username . $localize->Translate('error_unregistered_username');
+                $errormessage = $repecient . $localize->Translate('error_unregistered_username');
             } else {
                 $repecient = $db->result($query);
                 $date = time();

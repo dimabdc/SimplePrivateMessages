@@ -17,23 +17,22 @@ class Localizer {
     }
     
     public function setLanguage($language) {
-        if (is_file ("lang/".$this->lang.".php")){
-            require_once "lang/".$this->lang.".php";
+        if (is_file ("lang/".$language.".xml")){
+            self::$dictionary = simplexml_load_file("lang/".$language.".xml");
         } else {
-            require_once "lang/ru.php";
-        } 
-        $this->dictionary = $_LANG;
-        $this->lang = $language;
+            self::$dictionary = simplexml_load_file("lang/ru.xml");
+        }
+        self::$lang = $language;
     }
     
     public function getLanguage($language) {
-        return $this->lang;
+        return self::$lang;
     }
     
     public function Parse($template) {        
         $this->html = $template; 
 
-        foreach ($this->dictionary as $key => $value) {
+        foreach (self::$dictionary as $key => $value) {
             $template_name = '<$' . $key . '$>';
             $this->html = str_replace($template_name, $value, $this->html);
         }
@@ -41,6 +40,6 @@ class Localizer {
     }
     
     public function Translate($name) {
-        return $this->dictionary[$name];
+        return self::$dictionary->{$name};
     }
 }

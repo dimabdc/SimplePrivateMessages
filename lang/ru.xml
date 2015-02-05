@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lang>
+    <error_empty_login>Логин не может быть пустым! </error_empty_login>
+    <error_empty_password>Пароль не может быть пустым! </error_empty_password>
+    <error_incorrect_login_password>Имя пользователя или пароль указаны не верно.</error_incorrect_login_password>
+    <error_empty_email>E-mail не может быть пустым! </error_empty_email>
+    <error_invalid_passwor>Пароль не может быть такой-же как имя пользователя. </error_invalid_passwor>
+    <error_invalid_email>Неправельный E-mail адрес. </error_invalid_email>
+    <error_invalid_login>В логине недопустимые символы. </error_invalid_login>
+    <error_registered_email>E-mail адрес </error_registered_email>
+    <error_registered> уже зарегистрирован в системе.</error_registered>
+    <error_empty_username>Введите пользователя! </error_empty_username>
+    <error_invalid_username>В имени пользователя недопустимые символы. </error_invalid_username>
+    <error_unregistered_username> не зарегистрирован в системе.</error_unregistered_username>
+
+    <aut>Авторизация</aut>
+    <aut_in>Войдите или </aut_in>
+    <aut_reg>зарегистрируйтесь</aut_reg>
+    <aut_aut>Войти</aut_aut>
+
+    <login>Логин</login>
+    <password>Пароль</password>
+    <email>Email</email>
+
+    <reg>Регистрация</reg>
+    <reg_message>Заполните регистрационные данные.</reg_message>
+    <reg_reg>Зарегистрироваться</reg_reg>
+
+    <home>Домой</home>
+    <messages>Сообщения</messages>
+    <exit>Выход</exit>
+
+    <messages_mess>Всего </messages_mess>
+    <messages_mess2> сообщений! Новых </messages_mess2>
+    <messages_mess3> сообщений.</messages_mess3>
+    <messages_title>Тема</messages_title>
+    <messages_repecient>Отправитель</messages_repecient>
+    <messages_date>Дата</messages_date>
+    <messages_create>Написать сообщение</messages_create>
+
+    <message_mess>Сообщение отправлено: </message_mess>
+    <message_mess1> от пользователя </message_mess1>
+    <message_reply>Ответить</message_reply>
+
+    <private>Закрытый раздел!</private>
+    <private_mess>Добро пожаловать, </private_mess>
+    <private_mess2>! Ваша почта - </private_mess2>
+
+    <send>Отправить сообщение</send>
+    <send_user>Пользователь</send_user>
+    <sent_title>Тема</sent_title>
+    <send_message>Сообщение</send_message>
+    <send_send>Отправить</send_send>
+</lang>

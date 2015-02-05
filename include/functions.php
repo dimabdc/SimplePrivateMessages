@@ -36,25 +36,8 @@ function validemail($email) {
     return false;
 }
 
-class HtmlTemplate {
-    private $html;
-    private $parameters = array();
-
-    function assign($variable, $value) {
-        $this->parameters[$variable] = $value;
-    }
-
-    function parse($template) { 
-        $this->html = $template; 
-
-        foreach (array_reverse ($this->parameters) as $key => $value) {
-            $template_name = '<#' . $key . '#>';
-            $this->html = str_replace($template_name, $value, $this->html);
-        }
-        return $this->html;
-    }
-    
-    function display($template, $localize) {
-        echo $localize->Translate($this->parse($template));
+function require_once_wildcard($wildcard) {
+    foreach (glob($wildcard) as $filename) {
+        include_once $filename;
     }
 }

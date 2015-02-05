@@ -7,9 +7,12 @@ $islogin = isset($_SESSION['username'])?true:false;
 
 define ('IN_ANNOUNCE', true);
 define("ROOT_PATH",dirname(__FILE__).'/');
-require_once(ROOT_PATH . 'include/config.php');
-require_once(ROOT_PATH . 'include/language.php');
-require_once(ROOT_PATH . 'include/functions.php');
+
+require_once ROOT_PATH . 'include/functions.php';
+spl_autoload_register(function ($class) {
+    include ROOT_PATH . 'include/classes/' . $class . '.class.php';
+});
+require_once ROOT_PATH . 'include/config.php';
 
 $htmltemplate = new HtmlTemplate();
 
@@ -17,17 +20,16 @@ $localize = Localizer::getInstance();
 $localize->setLanguage($lang);
 
 $page = isset($_GET['page'])?$_GET['page']:"login";
-if (is_file ("pages/".$page.".php")){
-    require_once "pages/".$page.".php";
+if (is_file (ROOT_PATH . "pages/".$page.".php")){
+    require_once ROOT_PATH . "pages/".$page.".php";
 }
 
-if (is_file ("template/$page.tpl")){
-    $template_page = file("template/$page.tpl");
+if (is_file (ROOT_PATH . "template/$page.tpl")){
+    $template_page = file(ROOT_PATH . "template/$page.tpl");
 }
 $template_page = implode("", $template_page);
 
-$template_main = file("template/main.tpl");
-$template_main = implode("", $template_main);
+$template_main = implode("", file(ROOT_PATH . "template/main.tpl"));
 
 $htmltemplate->assign("pagetitle", $page);
 $htmltemplate->assign("errormessage", $errormessage);
